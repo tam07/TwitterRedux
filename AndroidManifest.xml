@@ -14,7 +14,7 @@
     <application
         android:name="com.codepath.apps.mytwitterapp.MyTwitterApp"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_twitter"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <meta-data
@@ -45,7 +45,7 @@
         </activity>
         <activity
             android:name="com.codepath.apps.mytwitterapp.TimelineActivity"
-            android:label="@string/title_activity_timeline" >
+            android:label="@string/app_name" >
         </activity>
     </application>
 
