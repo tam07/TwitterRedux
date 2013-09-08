@@ -3,14 +3,17 @@ package com.codepath.apps.mytwitterapp;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.codepath.apps.mytwitterapp.models.Tweet;
+import com.codepath.apps.mytwitterapp.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class TimelineActivity extends Activity {
@@ -30,6 +33,14 @@ public class TimelineActivity extends Activity {
 				
 				
 				// Log.d("DEBUG", jsonTweets.toString());
+			}
+		});
+		
+		MyTwitterApp.getRestClient().getCurrentCredentials(new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(JSONObject jsonUser) {
+				User currentUser = User.fromJson(jsonUser);
+				Toast.makeText(getApplicationContext(), currentUser.getScreenName(), Toast.LENGTH_LONG).show();
 			}
 		});
 	}

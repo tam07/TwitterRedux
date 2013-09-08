@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">My Twitter App</string>
     <string name="login_label">Log in</string>
-    <string name="placeholder">userX</string>
-    
+    <string name="placeholder">currentUser</string>
     <string name="action_settings">Action Settings</string>
+    <string name="title_activity_compose">ComposeActivity</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>

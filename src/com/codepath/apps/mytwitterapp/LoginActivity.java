@@ -13,6 +13,7 @@ public class LoginActivity extends OAuthLoginActivity<TwitterClient> {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_login);
 	}
 
@@ -29,7 +30,10 @@ public class LoginActivity extends OAuthLoginActivity<TwitterClient> {
     public void onLoginSuccess() {
     	// Intent i = new Intent(this, PhotosActivity.class);
     	// startActivity(i);
+    	
+    	
     	Intent i = new Intent(this, TimelineActivity.class);
+    	
     	startActivity(i);
     }
     

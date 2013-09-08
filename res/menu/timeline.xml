@@ -1,24 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <!-- the '+' before an id means you are creating an id now and telling the parser
-         to create a new entry in R.java. -->
-    <item>
-        android:id="@+id/twitter_logo"
-        android:icon="@drawable/ic_twitter"
-        android:orderInCategory="1"
-        android:showAsAction="always" />
-    <item>
-        android:id="@+id/current_user"
-        android:title="@string/placeholder"
-        android:orderInCategory="2"
-        android:showAsAction="always" />
-    <item>
+         to create a new entry in R.java. -->
+    <item
         android:id="@+id/refresh"
         android:icon="@drawable/ic_refresh"
-        android:orderInCategory="3"
+        android:orderInCategory="1"
         android:showAsAction="always" />
-    <item>
-        android:id="@+id/compose">
+    <item
+        android:id="@+id/compose"
         android:icon="@drawable/ic_compose"
-        android:orderInCategory="4"
+        android:orderInCategory="2"
         android:showAsAction="always" />
 </menu>
