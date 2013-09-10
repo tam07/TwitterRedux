@@ -7,10 +7,35 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ComposeActivity" >
+    
 
-    <TextView
+    <Button
+        android:id="@+id/cancel_button_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:text="@string/cancel_button" 
+        android:onClick="onCancel"/>
+
+    <Button
+        android:id="@+id/tweet_button_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/tweet_button"
+        android:onClick="onTweet" />
+
+    <EditText
+        android:id="@+id/tweet_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/cancel_button_id"
+        android:layout_marginTop="118dp"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

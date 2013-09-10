@@ -20,6 +20,7 @@ public class TweetsAdapter extends ArrayAdapter<Tweet> {
 		super(context, 0, tweets);
 	}
 
+	// fill out a tweet "row" and return this row
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View view = convertView;
@@ -28,6 +29,9 @@ public class TweetsAdapter extends ArrayAdapter<Tweet> {
 			view = inflater.inflate(R.layout.tweet_item, null);
 		}
 
+		/* get the model instance everything is based off of -
+		 * image, name, tweet text
+		 */
 		Tweet tweet = getItem(position);
 
 		ImageView imageView = (ImageView) view.findViewById(R.id.ivProfile);
