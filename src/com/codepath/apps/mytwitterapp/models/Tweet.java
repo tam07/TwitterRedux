@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 public class Tweet extends BaseModel {
 	private User user;
+	
 
     public User getUser() {
         return user;
@@ -15,6 +16,11 @@ public class Tweet extends BaseModel {
 
     public String getBody() {
         return getString("text");
+    }
+    
+    // Added by Alex Tam
+    public String getTimestamp() {
+    	return getString("created_at");
     }
 
     public long getId() {

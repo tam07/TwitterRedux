@@ -37,14 +37,12 @@ public class ComposeActivity extends Activity {
 	
 	public void onTweet(View v) {
 		/* 1.  send POST request using TwitterClient with tweetText
-		 * 2.  create intent to go to TimelineActivity.  When it goes to TimelineActivity,
-		 *     onCreate will be called which pulls all the timeline tweets, including the one you 
-		 *     just posted.  This step should just call onCancel because they do the same thing
+		 * 2.  go back to TimelineActivity by finishing current activity
 		 */
 		String tweetText = tweetTextField.getText().toString();
 		MyTwitterApp.getRestClient().postTweet(tweetText, new JsonHttpResponseHandler() {
 		@Override
-			public void onSuccess(JSONObject jsonUser) {
+			public void onSuccess(JSONObject jsonResponse) {
 			    //post done, do the same thing as cancelling, reload timeline
 			    onCancel(null);
 			}
