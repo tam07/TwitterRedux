@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -32,6 +33,9 @@ public class TimelineActivity extends Activity {
 	
 	static final int REQUEST_CODE=100;
 	
+	SharedPreferences sp;
+	Editor e;
+	
 	public void setupViews() {
 		refreshButton = (Button)findViewById(R.id.cancel_button_id);
 		composeButton = (Button)findViewById(R.id.tweet_button_id);
@@ -39,8 +43,22 @@ public class TimelineActivity extends Activity {
 	
 	// take you to compose screen(activity)
 	public void onComposeClick(MenuItem mi) {
+		sp = getApplicationContext().getSharedPreferences("MyPref", 0);
+		e = sp.edit();
+		
+		MyTwitterApp.getRestClient().getCurrentCredentials(new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(JSONObject user) {
+				User currentUser = User.fromJson(user);
+				String profileImgLink = currentUser.getProfileImageUrl();
+				e.putString("profileImgUrl", profileImgLink);
+				e.commit();
+			}
+		});
+		
         Intent i = new Intent(this, ComposeActivity.class);
 		i.putExtra("mode", 2); // pass arbitrary data to launched activity
+       
 		// REQUEST_CODE can be any value we like, used to determine the result later
 		startActivityForResult(i, REQUEST_CODE);
 	}
@@ -48,15 +66,6 @@ public class TimelineActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	  if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-		 try {
-			 /* sometimes there is a delay with the post and we get here too fast not 
-			  * showing your post, add a delay
-			  */
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	     getAndDisplayTimeline();
 	  }
 	} 

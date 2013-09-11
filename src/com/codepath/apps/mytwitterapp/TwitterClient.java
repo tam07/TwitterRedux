@@ -40,10 +40,13 @@ public class TwitterClient extends OAuthBaseClient {
         params.put("status", tweetText);
     	client.post(url, params, handler);
     }
+    
+    // used to get username but also profile image
     public void getCurrentCredentials(AsyncHttpResponseHandler handler) {
     	String url = getApiUrl("account/verify_credentials.json");
     	client.get(url, null, handler);
     }
+    
     
     public void getHomeTimeline(AsyncHttpResponseHandler handler) {
     	String url = getApiUrl("statuses/home_timeline.json");
