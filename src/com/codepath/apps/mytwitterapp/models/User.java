@@ -30,6 +30,10 @@ public class User extends BaseModel {
 	    public int getFollowersCount() {
 	        return getInt("followers_count");
 	    }
+	    
+	    public String getTagline() {
+	    	return getString("description");
+	    }
 
 	    public int getFriendsCount() {
 	        return getInt("friends_count");

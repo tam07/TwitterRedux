@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello_world">Hello world!</string>
 
+    <string name="hello_world">Hello world!</string>
     <string name="app_name">My Twitter App</string>
     <string name="action_settings">Action Settings</string>
     <string name="title_activity_compose">Compose Tweet</string>
-    
     <string name="login_label">Log in</string>
     <string name="placeholder">currentUser</string>
     <string name="twitter_userprefix">"@"</string>
     <string name="cancel_button">Cancel</string>
     <string name="tweet_button">Tweet</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 
 </resources>
